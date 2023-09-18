@@ -3,7 +3,7 @@
   max-width: 30rem;
   margin: 2rem auto;
   border-radius: 4px;
-  background: linear-gradient(180deg, #307e6c, #2b996d);
+  background: linear-gradient(180deg, #30677e, #18436f);
 }
 
 .input-group {
@@ -41,7 +41,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
-  background: linear-gradient(180deg, #1f584b, #17493d);
+  background: linear-gradient(180deg, #01151a, #203660);
   color: #c2e9e0;
   font-family: 'Roboto Condensed', sans-serif;
   cursor: pointer;
@@ -50,16 +50,18 @@
 .buttonAlt {
   font-family: 'Roboto Condensed', sans-serif;
   border: none;
+  border-radius: 0.25rem;
+
   background: transparent;
   color: #c2e9e0;
   cursor: pointer;
+  background: linear-gradient(180deg, #6e268d, #5325c5);
 }
 
 .button:hover {
-  background: linear-gradient(180deg, #1b5346, #113c32);
+  background: #020e1d;
 }
 
 .buttonAlt:hover {
-  background: transparent;
-  color: #91e1d0;
+  background: rgb(0, 166, 255);
 }
