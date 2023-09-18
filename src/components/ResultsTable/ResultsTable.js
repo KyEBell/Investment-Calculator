@@ -1,6 +1,15 @@
-const ResultsTable = () => {
+import classes from './ResultsTable.module.css';
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+const ResultsTable = (props) => {
   return (
-    <table className='result'>
+    <table className={classes.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -11,13 +20,26 @@ const ResultsTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>YEAR NUMBER</td>
-          <td>TOTAL SAVINGS END OF YEAR</td>
-          <td>INTEREST GAINED IN YEAR</td>
-          <td>TOTAL INTEREST GAINED</td>
-          <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        {props.data.map((element) => (
+          <tr key={element.year}>
+            <td>{element.year}</td>
+            <td>{formatter.format(element.savingsEndOfYear)}</td>
+            <td>{formatter.format(element.yearlyInterest)}</td>
+            <td>
+              {formatter.format(
+                element.savingsEndOfYear -
+                  props.initialInvestment -
+                  element.yearlyContribution * element.year
+              )}
+            </td>
+            <td>
+              {formatter.format(
+                props.initialInvestment +
+                  element.yearlyContribution * element.year
+              )}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
